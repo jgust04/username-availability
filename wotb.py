@@ -18,9 +18,9 @@ def check_username(username):
     if response.status_code == 200:
         data = response.json()
         if not data.get("data"):  # If "data" is empty, username is available
-            print(f"✅ The username '{username}' is AVAILABLE!")
+            print(f"The username '{username}' is available")
         else:
-            print(f"❌ The username '{username}' is TAKEN.")
+            print(f"The username '{username}' is taken")
 
 # Ask user for a username to check
 while True:
@@ -30,11 +30,11 @@ while True:
     else:
         # Must be at least 3 characters long
         if len(username_to_check) < 3:
-            print("⚠️ Error: Username must be at least 3 characters long.")
+            print("Error: Username must be at least 3 characters long.")
 
         # Must only contain Latin letters, digits, and underscores
         if not re.match(r'^[A-Za-z0-9_]+$', username_to_check):
-            print("⚠️ Error: Username can only contain Latin letters (A-Z, a-z), digits (0-9), and underscores (_).")
+            print("Error: Username can only contain Latin letters (A-Z, a-z), digits (0-9), and underscores (_).")
         
         else:
             check_username(username_to_check)
